@@ -105,10 +105,17 @@ function getWinnersByYear(arr, callback1, callback2) {
     const year = callback1(arr, getFinals);
     const winnerEachYear = callback2(arr, getFinals);
 
-    for (let i = 0; i < year.length; i++) {
-        winnerByYear.push(`In ${year[i]}, ${winnerEachYear[i]} won the world cup!`);
 
-    }
+    year.reduce((acc, current, index) => {
+        winnerByYear.push(`In ${current}, ${winnerEachYear[index]} won the world cup!`)
+    }, []
+
+    )
+
+    // for (let i = 0; i < year.length; i++) {
+    //     winnerByYear.push(`In ${year[i]}, ${winnerEachYear[i]} won the world cup!`);
+
+    // }
     return winnerByYear;
 
 }
