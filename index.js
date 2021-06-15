@@ -5,13 +5,10 @@ import { fifaData } from './fifa.js';
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
-let game2014 = fifaData.filter(function (cur) {
-    return cur.Year === 2014;
+let final2014 = fifaData.filter(function (cur) {
+    return cur.Year === 2014 && cur.Stage === "Final";
 })
-console.log(game2014);
-let final2014 = game2014.filter(function (cur) {
-    return cur.Stage === "Final"
-});
+
 console.log(final2014);
 
 
