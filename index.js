@@ -112,10 +112,7 @@ function getWinnersByYear(arr, callback1, callback2) {
 
     )
 
-    // for (let i = 0; i < year.length; i++) {
-    //     winnerByYear.push(`In ${year[i]}, ${winnerEachYear[i]} won the world cup!`);
 
-    // }
     return winnerByYear;
 
 }
@@ -150,12 +147,23 @@ Create a function called `getCountryWins` that takes the parameters `data` and `
 Hint: Investigate your data to find "team initials"!
 Hint: use `.reduce` */
 
-function getCountryWins(/* code here */) {
+function getCountryWins(data, teamInitials) {
+    console.log(data);
+    let winNUmber = data.reduce(function (acc, current) {
+        if (current['Home Team Initials'] === teamInitials && current['Home Team Goals'] > current['Away Team Goals']) {
+            acc += 1;
+        } else if (current['Away Team Initials'] === teamInitials && current['Away Team Goals'] > current['Home Team Goals']) {
+            acc += 1;
 
-    /* code here */
+        }
+        return acc;
 
+    }, 0);
+
+    return winNUmber;
 }
 
+console.log(getCountryWins(getFinals(fifaData), 'FRA'));
 
 
 /* 💪💪💪💪💪 Stretch 2: 💪💪💪💪💪 
